@@ -19,7 +19,7 @@ include_directories(${QT_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR})
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(svq_SRCS main.cpp)
+set(svq_SRCS main.cpp dbutils.cpp)
 
 qt4_automoc(${svq_SRCS})
 add_executable(sqlite-viewer-qt ${svq_SRCS})

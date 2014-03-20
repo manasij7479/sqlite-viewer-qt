@@ -16,7 +16,7 @@
 
 #include<iostream>
 #include "sqlitewrapper.hpp"
-
+#include "dbutils.hpp"
 static int callback(void *NotUsed, int argc, char **argv, char **col)
 {
     for(int i=0; i<argc; ++i)
@@ -31,6 +31,10 @@ int main()
 	std::string command;
 	
 	mm::Database db(filename);
+	
+	for(auto s:mm::getTableNames(db))
+		std::cout<<s<<' ';
+	std::cout<<std::endl;
 	
 	while(true)
 	{
