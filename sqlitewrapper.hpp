@@ -20,9 +20,9 @@ namespace mm
 			}
 		}
 		
-		void operator()(std::string command,Callback function)
+		void operator()(std::string command,Callback function,void* arg=0)
 		{
-			auto err=sqlite3_exec(db,command.c_str(),function,0,&errormsg);
+			auto err=sqlite3_exec(db,command.c_str(),function,arg,&errormsg);
 			if(err!=SQLITE_OK)
 				throw std::runtime_error("SQL Error: "+std::string(errormsg));
 		}
