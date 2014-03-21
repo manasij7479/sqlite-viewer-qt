@@ -9,7 +9,7 @@ namespace mm
 	public:
 		Shell(Database& db_):db(db_){};
 		Database& getDb(){return db;}
-		virtual void operator()()=0;
+		virtual int operator()()=0;
 		virtual ~Shell(){};
 	private:
 		Database& db;

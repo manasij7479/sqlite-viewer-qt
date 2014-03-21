@@ -16,7 +16,7 @@ namespace mm
 	{
 	public:
 		ConsoleShell(Database& db_):Shell(db_){};
-		virtual void operator()()
+		virtual int operator()()
 		{
 			while(true)
 			{
