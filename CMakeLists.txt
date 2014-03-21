@@ -24,4 +24,4 @@ set(svq_SRCS main.cpp dbutils.cpp)
 qt4_automoc(${svq_SRCS})
 add_executable(sqlite-viewer-qt ${svq_SRCS})
 
-target_link_libraries(sqlite-viewer-qt ${QT_QTCORE_LIBRARY} ${QT_QTGUI_LIBRARY} "-lsqlite3")
+target_link_libraries(sqlite-viewer-qt ${QT_QTCORE_LIBRARY} ${QT_QTGUI_LIBRARY} "sqlite3")

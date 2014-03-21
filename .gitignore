@@ -14,3 +14,7 @@
 
 # Build dir
 build
+
+#kdev
+*.kdev4
+
