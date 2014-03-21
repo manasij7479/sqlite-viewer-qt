@@ -17,13 +17,7 @@
 #include<iostream>
 #include "sqlitewrapper.hpp"
 #include "dbutils.hpp"
-static int callback(void *NotUsed, int argc, char **argv, char **col)
-{
-    for(int i=0; i<argc; ++i)
-		std::cout<<col[i]<<"="<<(argv[i] ? argv[i] : "NULL")<<"\t";
-    printf("\n");
-    return 0;
-}
+#include "consoleshell.hpp"
 
 int main()
 {
@@ -36,11 +30,8 @@ int main()
 		std::cout<<s<<' ';
 	std::cout<<std::endl;
 	
-	while(true)
-	{
-		std::cout<<"$ ";
-		std::getline(std::cin,command,';');
-		db(command,callback);
-	}
+	mm::ConsoleShell shell(db);
+	shell();
+	
 	return 0;
 }

@@ -1,9 +1,9 @@
 #ifndef MM_SHELL_HPP
 #define MM_SHELL_HPP
-#include <iostream>
 #include "sqlitewrapper.hpp"
 namespace mm
 {
+	
 	class Shell
 	{
 	public:
