@@ -17,9 +17,9 @@
 #include<iostream>
 #include "sqlitewrapper.hpp"
 #include "dbutils.hpp"
-#include "consoleshell.hpp"
+#include "shellfactory.hpp"
 
-int main()
+int main(int argc,char** argv)
 {
 	std::string filename="foo.db";
 	std::string command;
@@ -30,8 +30,8 @@ int main()
 		std::cout<<s<<' ';
 	std::cout<<std::endl;
 	
-	mm::ConsoleShell shell(db);
-	shell();
+	mm::Shell& shell=mm::ShellFactory(db,argc,argv);
 	
-	return 0;
+	
+	return shell();
 }
