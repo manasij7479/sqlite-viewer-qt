@@ -1,33 +1,28 @@
 #ifndef MM_GUISHELL_HPP
 #define MM_GUISHELL_HPP
 #include <QtGui>
-#include <unordered_map>
 #include "widget.hpp"
 
 namespace mm
 {
 	class GuiShell : public QMainWindow
 	{
-		
+		Q_OBJECT
 	public:
-		GuiShell()
+		GuiShell();
+		virtual ~GuiShell();
+	private slots:
+		void open()
 		{
-			l=new Widget();
-			setCentralWidget(l);
-			
-			
-			
+			QString fileName =
+			QFileDialog::getOpenFileName(this,"Open File", "","Files (*.*)");
+			emit fileOpened(fileName);
 		}
-		
-		virtual ~GuiShell()
-		{
-			
-		};
+	signals:
+		void fileOpened(QString value);
 	private:
-		Widget* l;
-		QAction* fileopen;
+		Widget* wid;
 		
 	};
 }
-
 #endif

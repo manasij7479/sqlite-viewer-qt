@@ -5,17 +5,15 @@ namespace mm
 {
 	class Widget :public QWidget
 	{
+		Q_OBJECT
 	public:
-		Widget()
+		Widget();
+	public slots:
+		void newFile(QString filename)
 		{
-			vl=new QVBoxLayout(this);
-			l=new QLabel("Hello");
-			p=new QPushButton("Quit");
-			vl->addWidget(l);
-			vl->addWidget(p);
-			setLayout(vl);
-			connect(p,SIGNAL(pressed()),qApp,SLOT(quit()));
+			l->setText(filename);
 		}
+		
 	private:
 		QVBoxLayout* vl;
 		QLabel* l;

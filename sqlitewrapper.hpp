@@ -1,7 +1,7 @@
 #ifndef MM_SQLITE_WRAPPER_HPP
 #define MM_SQLITE_WRAPPER_HPP
 
-#include<sqlite3.h>
+#include <sqlite3.h>
 #include <stdexcept>
 #include <string>
 
@@ -38,5 +38,6 @@ namespace mm
 		sqlite3* db;
 		char* errormsg;
 	};
+
 }
 #endif
