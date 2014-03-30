@@ -2,7 +2,6 @@
 #define MM_GUISHELL_HPP
 #include <QtGui>
 #include "widget.hpp"
-
 namespace mm
 {
 	class GuiShell : public QMainWindow
@@ -14,12 +13,17 @@ namespace mm
 	private slots:
 		void open()
 		{
-			QString fileName =
+			QString filename =
 			QFileDialog::getOpenFileName(this,"Open File", "","Files (*.*)");
-			emit fileOpened(fileName);
+			//emit fileOpened(fileName);
+			Widget* next=new Widget(filename);
+			wid->deleteLater();
+			this->setCentralWidget(next);
+			wid=next;
 		}
+		
 	signals:
-		void fileOpened(QString value);
+		//void fileOpened(QString value);
 	private:
 		Widget* wid;
 		

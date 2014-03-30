@@ -12,7 +12,6 @@ namespace mm
 			
 			QAction* openaction=new QAction("Open",this);
 			connect(openaction,SIGNAL(triggered()),this,SLOT(open()));
-			connect(this,SIGNAL(fileOpened(QString)),wid,SLOT(newFile(QString)));
 			
 			QMenu* filemenu=menuBar()->addMenu("File");
 			filemenu->addAction(openaction);

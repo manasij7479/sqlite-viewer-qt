@@ -1,15 +1,26 @@
 #include "widget.hpp"
-
+#include <vector>
+#include "dbutils.hpp"
+#include <iostream>
 namespace mm
 {
-	Widget::Widget()
+	Widget::Widget(QString name)
 	{
-		vl=new QVBoxLayout(this);
-		l=new QLabel("Hello");
-		p=new QPushButton("Quit");
-		vl->addWidget(l);
-		vl->addWidget(p);
-		setLayout(vl);
-		connect(p,SIGNAL(pressed()),qApp,SLOT(quit()));
+		db=new mm::Database(name.toStdString());
+		auto v=getTableNames(*db);
+		
+		QVBoxLayout* vbl=new QVBoxLayout(this);
+		
+		for(auto name:v)
+		{
+			QLabel* l=new QLabel(QString(name.c_str()));
+			vbl->addWidget(l);
+			std::cout<<name<<std::endl;
+		}
+		
+		this->setLayout(vbl);
+		
+		
 	}
+	
 }
