@@ -7,10 +7,14 @@ namespace mm
 	{
 		Q_OBJECT
 	public:
-    explicit TableView(QWidget* parent = 0, Qt::WindowFlags f = 0){};
-	TableView(QString tablename);
+		explicit TableView(QWidget* parent = 0, Qt::WindowFlags f = 0){};
+		TableView(QString tablename);
+	private slots:
+		void view();
 	private:
-		QLabel* name;
+		QString name;
+		QLabel* l;
+		QPushButton* p;
 	};
 }
 #endif
