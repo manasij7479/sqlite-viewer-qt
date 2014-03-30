@@ -1,5 +1,6 @@
 #include "widget.hpp"
 #include <vector>
+#include "sqlitewrapper.hpp"
 #include "dbutils.hpp"
 #include <iostream>
 namespace mm
@@ -9,17 +10,17 @@ namespace mm
 		db=new mm::Database(name.toStdString());
 		auto v=getTableNames(*db);
 		
-		QVBoxLayout* vbl=new QVBoxLayout(this);
+		vbl=new QVBoxLayout(this);
 		
 		for(auto name:v)
 		{
-			QLabel* l=new QLabel(QString(name.c_str()));
-			vbl->addWidget(l);
-			std::cout<<name<<std::endl;
+			auto t=new TableView(name.c_str());
+			vbl->addWidget(t);
+			views.push_back(t);
+// 			std::cout<<name<<std::endl;
 		}
 		
 		this->setLayout(vbl);
-		
 		
 	}
 	

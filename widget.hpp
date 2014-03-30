@@ -2,9 +2,11 @@
 #define MM_WIDGET_HPP
 #include <QtGui>
 #include <vector>
-#include "sqlitewrapper.hpp"
+// #include "sqlitewrapper.hpp"
+#include "tableview.hpp"
 namespace mm
 {
+	class Database;
 	class Widget :public QWidget
 	{
 		Q_OBJECT
@@ -14,10 +16,8 @@ namespace mm
 	public slots:
 		
 	private:
-		QVBoxLayout* vl;
-		QLabel* l;
-		std::vector<QLabel*> labels;
-		QPushButton* p;
+		QVBoxLayout* vbl;
+		std::vector<TableView*> views;
 		Database* db ;
 	};
 }
