@@ -14,7 +14,7 @@ namespace mm
 		
 		for(auto name:v)
 		{
-			auto t=new TableView(name.c_str());
+			auto t=new TableView(db,name.c_str());
 			vbl->addWidget(t);
 			views.push_back(t);
 // 			std::cout<<name<<std::endl;

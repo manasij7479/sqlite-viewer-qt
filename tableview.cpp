@@ -1,8 +1,10 @@
 #include "tableview.hpp"
+#include "dbutils.hpp"
 namespace mm 
 {
-	TableView::TableView(QString tablename)
+	TableView::TableView(Database* db_,QString tablename)
 	{
+		db=db_;
 		name=tablename;
 		QHBoxLayout* hbl=new QHBoxLayout(this);
 		
@@ -17,7 +19,13 @@ namespace mm
 	}
 	void TableView::view()
 	{
-		qDebug()<<"TableView::view\n";
+		
+		QTextEdit* pte=new QTextEdit();
+		
+		pte->setReadOnly(true);
+		pte->setText(getAllData(*db,name.toStdString()).c_str());
+// 		l->setGeometry(100,100,400,400);
+		pte->show();
 	}
 
 }

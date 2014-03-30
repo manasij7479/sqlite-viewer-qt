@@ -5,6 +5,7 @@
 namespace mm
 {
 	std::vector<std::string> getTableNames(Database& db);
+	std::string getAllData(Database& db,std::string table);
 }
 
 #endif
